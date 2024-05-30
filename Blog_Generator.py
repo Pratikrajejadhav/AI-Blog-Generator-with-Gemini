@@ -23,10 +23,8 @@ def show_login_form():
     st.subheader("Login")
     email = st.text_input("Email")
     password = st.text_input("Password", type="password")
-
     st.write("[ Use this email and password to login : - email_id = ( 'test@gmail.com' ) and password = 'testpass' ]")
-    # st.write("email_id = test@gmail.com")
-    # st.write("password = testpass")
+    
 
     if st.button("Login"):
         if email not in user_data["email"].values:
@@ -47,9 +45,12 @@ def show_next_page():
     st.write(f"Hello, you are welcome {st.session_state['username']}!")
     st.title("AI Blog Generator")
     st.subheader('Unleash the power of Generative AI to seamlessly generate amazing blogs.')
-    api_key = st.text_input("Enter your api key here")
-    if api_key:
-        genai.configure(api_key=api_key)
+    api_key = st.text_input("Enter your api key here",type='password')
+    if api_key and st.button("Enter"):
+        
+            genai.configure(api_key=api_key)
+        else:
+            st.write("Please Enter Your Api Key")
  
         topic = st.text_input("Enter the main topic of your Blog")
         headline =  st.text_input("Enter the title of your Blog")
