@@ -46,11 +46,8 @@ def show_next_page():
     st.title("AI Blog Generator")
     st.subheader('Unleash the power of Generative AI to seamlessly generate amazing blogs.')
     api_key = st.text_input("Enter your api key here",type='password')
-    if api_key and st.button("Enter"):
-        
-            genai.configure(api_key=api_key)
-        else:
-            st.write("Please Enter Your Api Key")
+    if api_key:
+        genai.configure(api_key=api_key)
  
         topic = st.text_input("Enter the main topic of your Blog")
         headline =  st.text_input("Enter the title of your Blog")
