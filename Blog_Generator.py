@@ -24,6 +24,10 @@ def show_login_form():
     email = st.text_input("Email")
     password = st.text_input("Password", type="password")
 
+    st.write("[ Use this email and password to login : - email_id = ( test@gmail.com ) and password = testpass ]")
+    # st.write("email_id = test@gmail.com")
+    # st.write("password = testpass")
+
     if st.button("Login"):
         if email not in user_data["email"].values:
             st.error("Email not found!")
